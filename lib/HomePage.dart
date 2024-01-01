@@ -9,28 +9,36 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Employee employee = Employee();
-  Employee employee1 = Employee();
+
 
 
   @override
   void initState() {
-    createObject();
     super.initState();
   }
 
-  void createObject() {
-    employee.name = "Maruf Hasan";
-    employee.position = "Developer";
-    employee.salary = 1000;
 
-    employee1.name = "Kamal Uddin";
-    employee1.position = "CEO";
-    employee1.salary = 5000;
-  }
 
   @override
   Widget build(BuildContext context) {
+
+
+    Employee employee = Employee();
+    employee.setName("Maruf Hasan");
+    String? name=employee.getName();
+
+    employee.setPosition("Developer");
+    String? position=employee.getPosition();
+
+    employee.setSalary(5000);
+    int? salary=employee.getSalary();
+
+
+
+
+
+
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("OOP Practice"),
@@ -41,14 +49,10 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Name : ${employee.name} \nPosition: ${employee.name} \nSalary:${employee.salary} ",
+              "Name : $name  \nPosition : $position\nSalary: $salary",
               style: const TextStyle(fontSize: 25),
             ),
-            const SizedBox(height: 20,),
-            Text(
-              "Name : ${employee1.name} \nPosition: ${employee1.name} \nSalary:${employee1.salary} ",
-              style: const TextStyle(fontSize: 25),
-            ),
+
           ],
         ),
       ),
